@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.24)            #cmake最低版本要求
 
-project(ZhengLi)                                #设置项目名称（也可以先声明项目变量，然后填入变量）
+project(cpp-5th_ZhengLi)                                #设置项目名称（也可以先声明项目变量，然后填入变量）
+# 判断是否是Mac系统
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+    include_directories(/usr/local/include)
+else()
+endif()
+
 aux_source_directory(. DIR_SRCS)                #将当前目录下的所有源文件的名字保存到变量DIR_SRCS
 add_executable(ZhengLi ${DIR_SRCS})             #为整个项目导入Boost库
 
